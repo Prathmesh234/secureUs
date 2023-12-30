@@ -10,7 +10,8 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 public class AmazonConfig{
     @Bean
     public AmazonS3 s3(){
-        AWSCredentials awsCredentials = new BasicAWSCredentials("AKIAUAY4POF67VJJJZNM", "LFPduOUgqYFlfxDsmhhGG2C13ZqAMr7RI02YJ+CI");
+        AWSCredentials awsCredentials = new BasicAWSCredentials(System.getenv("AWS_ACCESS_KEY_ID"),
+        System.getenv("AWS_SECRET_ACCESS_KEY")););
         return AmazonS3ClientBuilder
                 .standard()
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
